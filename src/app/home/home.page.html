@@ -1,0 +1,126 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      SHOPPING CART
+    </ion-title>
+    <!-- <ion-buttons slot="secondary">
+      <ion-button>
+        <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+    <ion-buttons slot="primary">
+      <ion-button color="secondary">
+        <ion-icon name="cart-outline"></ion-icon>
+        <ion-badge color="primary">{{this.cs.get_cart_length()}}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="ion-padding">
+    <div class="accordion" id="accordionExample">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+              data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              RAU CỦ-TRÁI CÂY
+            </button>
+          </h2>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+            <ion-slides pager='true' [options]="slideOpts">
+
+              <ion-slide *ngFor="let x of data[0].listProduct">
+                <ion-card>
+                  <ion-card-header>
+                    <ion-card-title style="color:blueviolet">{{x.name}}_{{x.price|currency:'USD'}}</ion-card-title>
+                  </ion-card-header>
+
+                  <ion-card-content>
+                    <img src="{{x.imgURL}}"
+                      alt="" style="height:150px">
+                    <ion-button color="tertiary" (click)="addToCart(x)">ADD TO CART</ion-button>
+                  </ion-card-content>
+                </ion-card>
+              </ion-slide>
+              <!-- <ion-slide>
+                <ion-card>
+                  <ion-card-header>
+                    <ion-card-title>Set rau tươi-$8</ion-card-title>
+                  </ion-card-header>
+
+                  <ion-card-content>
+                    <img
+                      src="https://cdn.shopify.com/s/files/1/2336/3219/products/shutterstock_336818993meyer_x850.jpg?v=1554665742"
+                      alt="">
+                    <ion-button color="tertiary">ADD TO CART</ion-button>
+                  </ion-card-content>
+                </ion-card>
+              </ion-slide>
+              <ion-slide>
+                <ion-card>
+                  <ion-card-header>
+                    <ion-card-title>Set rau tươi-$8</ion-card-title>
+                  </ion-card-header>
+
+                  <ion-card-content>
+                    <img
+                      src="https://m.media-amazon.com/images/I/91tCuetFu6L._AC_SS350_.jpg"
+                      alt="">
+                    <ion-button color="tertiary">ADD TO CART</ion-button>
+                  </ion-card-content>
+                </ion-card>
+              </ion-slide>
+              <ion-slide>
+                <ion-card>
+                  <ion-card-header>
+                    <ion-card-title>Set rau tươi-$8</ion-card-title>
+                  </ion-card-header>
+
+                  <ion-card-content>
+                    <img
+                      src="https://shoptinhdau.com/wp-content/uploads/2018/06/straw-e1529640243518.jpg"
+                      alt="">
+                    <ion-button color="tertiary">ADD TO CART</ion-button>
+                  </ion-card-content>
+                </ion-card>
+              </ion-slide> -->
+         
+            </ion-slides>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+              data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              THỊT CÁC LOẠI
+            </button>
+          </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+          <div class="card-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+            officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
+            wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+            Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan
+            excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt
+            you probably haven't heard of them accusamus labore sustainable VHS.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</ion-content>
